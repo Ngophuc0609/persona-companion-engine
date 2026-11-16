@@ -1,0 +1,28 @@
+{
+  "name": "persona-companion-engine",
+  "version": "1.0.0",
+  "description": "Multi-Persona AI Companion & Social Commerce Engine with Episodic Memory and Psychological Nuance",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "node src/test_chat.js"
+  },
+  "keywords": [
+    "ai-companion",
+    "persona-engine",
+    "conversational-ai",
+    "rag",
+    "social-commerce",
+    "affiliate-bot"
+  ],
+  "author": "Ngophuc0609",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2",
+    "better-sqlite3": "^9.4.3",
+    "dotenv": "^16.4.5",
+    "node-fetch": "^3.3.2"
+  }
+}
