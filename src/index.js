@@ -15,12 +15,12 @@ app.get('/health', (req, res) => {
 // API Chat Core: Nhận tin nhắn từ bất kỳ nền tảng nào và trả về lời thoại tự nhiên
 app.post('/api/chat', async (req, res) => {
     try {
-        const { profileId = 'nguyen_van', userId, platform = 'facebook', message, userName } = req.body;
+        const { profileId = 'nguyen_van', userId, platform = 'facebook', message, userName, historyContext = [] } = req.body;
         if (!userId || !message) {
             return res.status(400).json({ error: 'Thiếu tham số userId hoặc message' });
         }
 
-        const result = await companion.chat(profileId, userId, platform, message, userName);
+        const result = await companion.chat(profileId, userId, platform, message, userName, historyContext);
         res.json(result);
     } catch (err) {
         console.error('Lỗi khi xử lý chat:', err);

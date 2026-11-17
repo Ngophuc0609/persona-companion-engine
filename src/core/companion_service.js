@@ -11,7 +11,7 @@ export class CompanionService {
         this.memoryStore = new MemoryStore();
     }
 
-    async chat(profileId, userId, platform, incomingMessage, userName = null) {
+    async chat(profileId, userId, platform, incomingMessage, userName = null, conversationHistory = []) {
         // 1. Cập nhật hoặc lấy hồ sơ người dùng
         const userProfile = this.memoryStore.upsertUserProfile(profileId, userId, platform, userName);
 
@@ -23,7 +23,8 @@ export class CompanionService {
             profileId,
             userProfile,
             recentMessages,
-            incomingMessage
+            incomingMessage,
+            conversationHistory
         );
 
         // 4. Lưu tin nhắn của khách vào SQLite
